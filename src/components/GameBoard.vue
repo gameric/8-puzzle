@@ -20,9 +20,7 @@
       <span> {{ moves }} Move{{ moves !== 1 ? "s" : "" }} </span>
     </div>
     <div v-if="isSolved">
-      <button @click="$emit('new-game')" class="new-game">
-        New Game?
-      </button>
+      <button @click="$emit('new-game')" class="new-game">New Game?</button>
     </div>
     <a href="https://github.com/gameric/8-puzzle" v-if="timer > 30 && !isSolved"
       >Don't know how to solve?</a
@@ -31,7 +29,7 @@
 </template>
 
 <script>
-import Tile from "@/components/Tile.vue";
+import Tile from "@/components/BoardTile.vue";
 import {
   getBoard,
   findBlank,
@@ -76,7 +74,6 @@ export default {
   methods: {
     onTileClicked(clickedTile) {
       if (this.isSolved || isSamePoint(clickedTile, this.blank)) return;
-      this.gameStarts = true;
       const moves = [
         { x: 1, y: 0 },
         { x: -1, y: 0 },
@@ -89,9 +86,9 @@ export default {
         const point = addPoints(clickedTile, move);
         if (isSamePoint(point, this.blank)) {
           swapPoints(this.board, clickedTile, this.blank);
-          this.$set(this.board, this.board); // trigger change in board (triggers isSolved)
           this.blank = clickedTile;
           this.moves++;
+          this.gameStarts = true;
           break;
         }
       }
