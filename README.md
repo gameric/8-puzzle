@@ -1,10 +1,8 @@
 # 8-Puzzle Game
 
-[![Build Status](https://travis-ci.com/gameric/8-puzzle.svg?branch=master)](https://travis-ci.com/gameric/8-puzzle)
-
 > A simple VueJS game
 
-[**https://gameric.github.io/8-puzzle/**](https://gameric.github.io/8-puzzle/)
+[**https://8-puzzle.pages.dev/**](https://8-puzzle.pages.dev/)
 
 <div align="center">
   <img alt="demo" src="./demo.gif" width="350"/>
